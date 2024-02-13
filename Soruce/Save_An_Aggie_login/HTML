@@ -1,1 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="Save_An_Aggie_login.css">
+  <script defer src="Save_An_Aggie_login.js"></script>
+</head>
+
+<body>
+  <main id="main-holder">
+    <h1 id="SAA_login-header">Login</h1>
+    
+    <div id="SAA_login-error-msg-holder">
+      <p id="SAA_login-error-msg">Invalid username<span id="error-msg-second-line">and/or password</span></p>
+    </div>
+    
+    <form id="SAA_login-form">
+      <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Enter Username">
+      <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Enter Password">
+      <input type="submit" value="Login" id="login-form-submit">
+      <a href="Save_An_Aggie_Register.html" id="login-form-register">Dont Have An Account? Register Here!</a>
+    </form>
+  
+  </main>
+</body>
+
+</html>
