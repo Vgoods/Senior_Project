@@ -5,15 +5,17 @@ const userfirstname = document.getElementById("firstname-field");
 const userlastname = document.getElementById("lastname-field");
 const useremail = document.getElementById("email-field");
 const usernameinput = document.getElementById("register-username-field");
-const passwordinput = document.getElementById("register-password-field")
+const passwordinput = document.getElementById("register-password-field");
 
-loginButton.addEventListener("click", (e) => {
+
+registerButton.addEventListener("click", (e) => {
     e.preventDefault();
-    const usernameinputvalue = usernameinput.ariaValueText;
-    const passwordinputvalue = passwordinput.ariaValueText;
+    const usernameinputvalue = usernameinput.value;
+    const passwordinputvalue = passwordinput.value;
+    const useremailvalue = useremail.value;
 
-    if (useremail.includes('@aggie.ncat.edu')) {
-        true;
+    if (useremailvalue.includes('@aggies.ncat.edu')) {
+        window.location.replace("Save_An_Aggie_Login.html");
     }
     else {
         registerErrorMsg.style.opacity = 1;
