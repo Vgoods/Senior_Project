@@ -7,7 +7,7 @@ loginButton.addEventListener("click", (e) => {
     const username = loginForm.username.value;
     const password = loginForm.password.value;
 
-    if (username === "Jaliyah" && password === "Hairston") {
+    if (username === "Vagoods" && password === "November01") {
         window.location.replace("file:///C:/Users/vince/OneDrive/Desktop/Senior_Project/Save_An_Aggie_Start.html");
     } 
     else {
