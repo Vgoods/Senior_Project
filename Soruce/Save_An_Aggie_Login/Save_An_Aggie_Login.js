@@ -11,7 +11,7 @@ loginButton.addEventListener("click", (e) => {
     const registeredPassword = localStorage.getItem('registeredPassword');
 
     if (username === registeredUsername && password === registeredPassword) {
-        window.location.replace("Save_An_Aggie_Start.html");
+        window.location.replace("Save_An_Aggie_Home.html");
     } 
     else {
         loginErrorMsg.style.opacity = 1;
