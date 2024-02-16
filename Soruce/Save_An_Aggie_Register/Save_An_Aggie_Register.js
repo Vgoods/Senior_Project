@@ -15,6 +15,9 @@ registerButton.addEventListener("click", (e) => {
     const useremailvalue = useremail.value;
 
     if (useremailvalue.includes('@aggies.ncat.edu')) {
+        // Save username and password to localStorage
+        localStorage.setItem('registeredUsername', usernameinputvalue);
+        localStorage.setItem('registeredPassword', passwordinputvalue);
         window.location.replace("Save_An_Aggie_Login.html");
     }
     else {
