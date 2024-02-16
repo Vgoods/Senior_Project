@@ -7,7 +7,10 @@ loginButton.addEventListener("click", (e) => {
     const username = loginForm.username.value;
     const password = loginForm.password.value;
 
-    if (username === "Vagoods" && password === "November01") {
+    const registeredUsername = localStorage.getItem('registeredUsername');
+    const registeredPassword = localStorage.getItem('registeredPassword');
+
+    if (username === registeredUsername && password === registeredPassword) {
         window.location.replace("Save_An_Aggie_Start.html");
     } 
     else {
