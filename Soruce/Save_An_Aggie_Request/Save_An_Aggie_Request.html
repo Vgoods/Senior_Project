@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Request</title>
+    <link rel="stylesheet" href="Save_An_Aggie_Request.css">
+    <script defer src="Save_An_Aggie_Request.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+          <div class="container">
+            <h1>Save An Aggie Request Form</h1>
+            <ul>
+              <li><a href="Save_An_Aggie_Home.html">Home</a></li>
+              <li><a href="Save_An_Aggie_Profile.html">Profile</a></li>
+              <li><a href="Save_An_Aggie_Task.html">Help An Aggie</a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+    <main>
+
+        <form id="maintenance-form" class="request-form">
+            <div class="form-group">
+                <label for="request-type">Request Type:</label>
+                <select id="request-type" name="request-type">
+                    <option value="blank"></option>
+                    <option value="plumbing">Course Work</option>
+                    <option value="electrical">Physical Assistance</option>
+                    <option value="appliance">Delivery</option>
+                    <option value="general">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="request-subject">Subject:</label>
+                <input type="text" id="request-subject" name="subject" placeholder="Enter subject">
+            </div>
+            <div class="form-group">
+                <label for="request-description">Description:</label>
+                <textarea id="request-description" name="description" rows="4" cols="50" placeholder="Please describe the issue..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <h2>Contact Information</h2>
+            </div>
+
+            <div class="form-group">
+                <label for="request-first-name">First Name:</label>
+                <input type="text" id="request-first-name" name="first-name" placeholder="Enter first name">
+            </div>
+
+            <div class="form-group">
+                <label for="request-last-name">Last Name:</label>
+                <input type="text" id="request-last-name" name="last-name" placeholder="Enter last name">
+            </div>
+
+            <div class="form-group">
+                <label for="request-phone">Phone Number:</label>
+                <input type="tel" id="request-phone" name="phone" placeholder="Enter phone number">
+            </div>
+
+            <div class="form-group">
+                <label for="request-email">Email:</label>
+                <input type="email" id="request-email" name="email" placeholder="Enter Aggie email">
+            </div>
+
+            <button type="submit" id="submit-request-button">Submit Request</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2024 Save An Aggie Request System</p>
+    </footer>
+</body>
+</html>
