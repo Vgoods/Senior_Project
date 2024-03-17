@@ -22,6 +22,11 @@ html {
     border-radius: 7px;
     box-shadow: 0px 0px 5px 2px black;
   }
+
+  #SAA-login-second-line{
+    display: block;
+    padding: 120px;
+  }
   
   #SAA_login-error-msg-holder {
     width: 100%;
