@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register</title>
-  <link rel="stylesheet" href="Save_An_Aggie_Register.css">
-  <script defer src="Save_An_Aggie_Register.js"></script>
+  <link rel="stylesheet" type="text/css" href="SAA_Register.css">
+  <script defer src="SAA_Register.js"></script>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
       <p id="SAA_register-error-msg">Invalid Aggie Email</p>
     </div>
     
-    <form id="SAA_register-form">
+    <form id="SAA_register-form" action="SAA_Register_Connect.php" method="post">
       <input type="text" name="firstname" id="firstname-field" class="register-form-field" placeholder="Enter Your First Name">
       <input type="text" name="lastname" id="lastname-field" class="register-form-field" placeholder="Enter Your Last Name">
       <input type="text" name="email" id="email-field" class="register-form-field" placeholder="Enter Your Aggie Email">
