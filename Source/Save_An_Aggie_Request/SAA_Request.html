@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Request</title>
-    <link rel="stylesheet" href="Save_An_Aggie_Request.css">
-    <script defer src="Save_An_Aggie_Request.js"></script>
+    <link rel="stylesheet" href="SAA_Request.css">
+    <script defer src="SAA_Request.js"></script>
 </head>
 
 <body>
@@ -16,17 +16,17 @@
           <div class="container">
             <h1>Save An Aggie Request Form</h1>
             <ul>
-              <li><a href="Save_An_Aggie_Home.html">Home</a></li>
-              <li><a href="Save_An_Aggie_Profile.html">Profile</a></li>
-              <li><a href="Save_An_Aggie_About.html">About</a></li>
-              <li><a href="Save_An_Aggie_Task.html">Help An Aggie</a></li>
+                <li><a href="SAA_Home.html">Home</a></li>
+                <li><a href="SAA_Profile.html">Profile</a></li>
+                <li><a href="SAA_About.html">About</a></li>
+                <li><a href="SAA_Task.php">Help An Aggie</a></li>
             </ul>
           </div>
         </nav>
       </header>
     
       <main id="main-holder">
-        <form id="maintenance-form" class="request-form">
+        <form id="maintenance-form" class="request-form" action="SAA_Request_Connect.php" method="post">
             <div class="form-group">
                 <label for="request-type">Request Type:</label>
                 <select id="request-type" name="request-type">
@@ -53,12 +53,12 @@
 
             <div class="form-group">
                 <label for="request-first-name">First Name:</label>
-                <input type="text" id="request-first-name" name="first-name" placeholder="Enter first name">
+                <input type="text" id="request-first-name" name="firstname" placeholder="Enter first name">
             </div>
 
             <div class="form-group">
                 <label for="request-last-name">Last Name:</label>
-                <input type="text" id="request-last-name" name="last-name" placeholder="Enter last name">
+                <input type="text" id="request-last-name" name="lastname" placeholder="Enter last name">
             </div>
 
             <div class="form-group">
