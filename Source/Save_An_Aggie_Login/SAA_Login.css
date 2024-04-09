@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('https://thegrio.com/wp-content/uploads/2022/08/AdobeStock_331201226-1024x683.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  #main-holder {
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  }
+  
+  #SAA_login-header {
+    text-align: center;
+    font-size: 36px; /* Adjust the font size as needed */
+    color: #333;
+}
+  #SAA-login-second-line {
+    display: block;
+    font-size: 18px;
+  }
+  
+  #SAA_login-error-msg-holder {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  #SAA_login-error-msg {
+    color: #ff0000;
+    font-size: 14px;
+    margin: 0;
+    opacity: 0;
+  }
+  
+  #error-msg-second-line {
+    display: block;
+  }
+  
+  #SAA_login-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login-form-field {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #login-form-submit {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #login-form-submit:hover {
+    background-color: #0056b3;
+  }
+  
+  #login-form-register {
+    text-align: center;
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  #login-form-register:hover {
+    text-decoration: underline;
+    color: #0056b3;
+  }
