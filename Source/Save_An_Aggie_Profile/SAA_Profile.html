@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <link rel="stylesheet" href="SAA_Profile.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Function to fetch profile data and populate the HTML
+      function fetchProfileData() {
+        $.ajax({
+          url: "get_profile_data.php",
+          type: "GET",
+          dataType: "json",
+          success: function(response) {
+            if (response.message) {
+              var user = response.user;
+              $("#profile-firstname").text(user.firstName);
+              $("#profile-lastname").text(user.lastName);
+              $("#profile-email").text(user.email);
+              $("#profile-username").text(user.username);
+            } else {
+              // Handle error
+              alert(response.error);
+            }
+          },
+          error: function(xhr, status, error) {
+            // Handle error
+            console.error(xhr.responseText);
+          }
+        });
+      }
+
+      // Call the function on document ready
+      fetchProfileData();
+    });
+  </script>
+</head>
+
+<body>
+  <main id="main-holder">
+    <h1 id="profile-header">User Profile</h1>
+    
+    <div id="profile-info">
+      <p><strong>First Name:</strong> <span id="profile-firstname"></span></p>
+      <p><strong>Last Name:</strong> <span id="profile-lastname"></span></p>
+      <p><strong>Email:</strong> <span id="profile-email"></span></p>
+      <p><strong>Username:</strong> <span id="profile-username"></span></p>
+      <a href="SAA_Home.html" id="home-link">Home</a>
+    </div>
+
+  </main>
+</body>
+
+</html>
