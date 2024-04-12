@@ -15,7 +15,7 @@
                     <li><a href="SAA_Home.html">Home</a></li>
                     <li><a href="SAA_Profile.html">Profile</a></li>
                     <li><a href="SAA_Request.html">Request Form</a></li>
-                    <li><a href="SAA_Task.php">View Your Tasks</a></li>
+                    <li><a href="SAA_Task.php">View Available Tasks</a></li>
                 </ul>
             </div>
         </nav>
@@ -27,7 +27,7 @@
 
             <div class="task-grid">
                 <?php
-
+                // Connect to MySQL database
                 $mysqli = new mysqli("localhost", "root", "", "test");
 
                 // Check connection
@@ -35,27 +35,36 @@
                     die("Connection failed: " . $mysqli->connect_error);
                 }
 
+                // Query to retrieve data from "actrequest" table
                 $sql = "SELECT * FROM actrequest";
                 $result = $mysqli->query($sql);
 
+                // Check if there are rows returned
                 if ($result->num_rows > 0) {
-
+                    // Output data of each row
                     while ($row = $result->fetch_assoc()) {
                         echo "<div class='task-item'>";
                         echo "<h3>" . $row["subject"] . "</h3>";
                         echo "<p><strong>Description:</strong> " . $row["description"] . "</p>";
                         echo "<p><strong>Posted By:</strong> " . $row["firstname"] . " " . $row["lastname"] . "</p>";
                         echo "<p><strong>Contact:</strong> " . $row["phone"] . ", " . $row["email"] . "</p>";
-                        echo "<form class='accept-task-form' method='post' action='process_task.php'>";
+                        echo "<form class='close-task-form' method='post' action='process_request.php'>";
                         echo "<input type='hidden' name='task_id' value='" . $row['id'] . "'>";
-                        echo "<button type='submit' class='close-task'>Click to Close Task</button>";
+                        echo "<button type='submit' class='close-task' name='close_task'>Click to Close Task</button>";
                         echo "</form>";
+
+                        echo "<form class='abort-task-form' method='post' action='process_request.php'>";
+                        echo "<input type='hidden' name='task_id' value='" . $row['id'] . "'>";
+                        echo "<button type='submit' class='abort-task' name='abort_task'>Click to Abort Task</button>";
+                        echo "</form>";
+                        
                         echo "</div>";
                     }
                 } else {
                     echo "<p>No tasks accepted at the moment.</p>";
                 }
 
+                // Close connection
                 $mysqli->close();
                 ?>
             </div>
