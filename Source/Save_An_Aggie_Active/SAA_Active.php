@@ -32,21 +32,16 @@
 
             <div class="task-grid">
                 <?php
-                // Connect to MySQL database
                 $mysqli = new mysqli("localhost", "root", "", "test");
 
-                // Check connection
                 if ($mysqli->connect_error) {
                     die("Connection failed: " . $mysqli->connect_error);
                 }
 
-                // Query to retrieve data from "actrequest" table
                 $sql = "SELECT * FROM actrequest";
                 $result = $mysqli->query($sql);
 
-                // Check if there are rows returned
                 if ($result->num_rows > 0) {
-                    // Output data of each row
                     while ($row = $result->fetch_assoc()) {
                         echo "<div class='task-item'>";
                         echo "<h3>" . $row["subject"] . "</h3>";
@@ -69,7 +64,6 @@
                     echo "<p>No tasks accepted at the moment.</p>";
                 }
 
-                // Close connection
                 $mysqli->close();
                 ?>
             </div>
