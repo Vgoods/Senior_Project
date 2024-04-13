@@ -9,7 +9,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
     $(document).ready(function() {
-      // Function to fetch profile data and populate the HTML
       function fetchProfileData() {
         $.ajax({
           url: "get_profile_data.php",
@@ -23,18 +22,15 @@
               $("#profile-email").text(user.email);
               $("#profile-username").text(user.username);
             } else {
-              // Handle error
               alert(response.error);
             }
           },
           error: function(xhr, status, error) {
-            // Handle error
             console.error(xhr.responseText);
           }
         });
       }
 
-      // Call the function on document ready
       fetchProfileData();
     });
   </script>
