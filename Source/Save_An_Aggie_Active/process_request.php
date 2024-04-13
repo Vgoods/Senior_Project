@@ -16,7 +16,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "DELETE FROM actrequest WHERE id = $task_id";
         
         if ($mysqli->query($sql) === TRUE) {
-            echo "Task closed successfully.";
+            // Task closed successfully
+            header("Location: SAA_Active.php"); // Redirect back to the same page
+            exit;
         } else {
             echo "Error closing task: " . $mysqli->error;
         }
@@ -34,7 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $sql_delete = "DELETE FROM actrequest WHERE id = $task_id";
             
             if ($mysqli->query($sql_delete) === TRUE) {
-                echo "Task aborted successfully.";
+                // Task aborted successfully
+                header("Location: SAA_Active.php"); // Redirect back to the same page
+                exit;
             } else {
                 echo "Error aborting task: " . $mysqli->error;
             }
@@ -43,6 +47,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
+
+// Close connection
+$mysqli->close();
+?>
 
 // Close connection
 $mysqli->close();
