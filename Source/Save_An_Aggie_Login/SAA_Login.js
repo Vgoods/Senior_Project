@@ -14,16 +14,14 @@ loginButton.addEventListener("click", (e) => {
     .then(response => response.json())
     .then(data => {
         if (data.message === "Login Successfully") {
-            window.location.replace("SAA_Home.html"); // Redirect to blank.html upon successful login
+            window.location.replace("SAA_Home.html"); 
         } else {
-            // Display error message
             loginErrorMsg.innerText = data.error || "An error occurred while logging in";
             loginErrorMsg.style.opacity = 1;
         }
     })
     .catch(error => {
         console.error("Error:", error);
-        // Display error message
         loginErrorMsg.innerText = "An error occurred while logging in";
         loginErrorMsg.style.opacity = 1;
     });
