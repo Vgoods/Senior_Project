@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Save An Aggie Task Portal</title>
     <link rel="stylesheet" href="SAA_Active.css">
+    <script>
+        function reloadPage() {
+            location.reload();
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -50,7 +55,7 @@
                         echo "<p><strong>Contact:</strong> " . $row["phone"] . ", " . $row["email"] . "</p>";
                         echo "<form class='close-task-form' method='post' action='process_request.php'>";
                         echo "<input type='hidden' name='task_id' value='" . $row['id'] . "'>";
-                        echo "<button type='submit' class='close-task' name='close_task'>Click to Close Task</button>";
+                        echo "<button type='submit' class='close-task' name='close_task'>Click to Finish Task</button>";
                         echo "</form>";
 
                         echo "<form class='abort-task-form' method='post' action='process_request.php'>";
@@ -76,6 +81,5 @@
             <p>&copy; 2024 Save An Aggie Request System</p>
         </div>
     </footer>
-
 </body>
 </html>
