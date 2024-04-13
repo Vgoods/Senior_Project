@@ -5,10 +5,8 @@ window.addEventListener("scroll", function() {
     var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
     if (currentScroll > lastScrollTop) {
-        // Scroll down
-        header.style.top = "-100px"; // Adjust this value as needed
+        header.style.top = "-100px";
     } else {
-        // Scroll up
         header.style.top = "0";
     }
     lastScrollTop = currentScroll;
@@ -16,9 +14,8 @@ window.addEventListener("scroll", function() {
 
 document.querySelectorAll('.accept-task-form').forEach(form => {
     form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent default form submission
+        event.preventDefault(); 
 
-        // AJAX request to submit the form data asynchronously
         var formData = new FormData(this);
         fetch(this.action, {
             method: 'POST',
@@ -26,8 +23,6 @@ document.querySelectorAll('.accept-task-form').forEach(form => {
         })
         .then(response => {
             if (response.ok) {
-                // Optionally, you can provide some visual feedback to the user
-                // For example, hide the task item upon successful acceptance
                 form.closest('.task-item').style.display = 'none';
             } else {
                 console.error('Failed to process the task');
