@@ -3,13 +3,11 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Database connection
     $conn = new mysqli('localhost', 'root', '', 'test');
     if ($conn->connect_error) {
         die("Connection Failed: " . $conn->connect_error);
     }
 
-    // Prepare SQL statement to retrieve user data
     $stmt = $conn->prepare("SELECT id FROM register WHERE username = ? AND password = ?");
     $stmt->bind_param("ss", $username, $password);
     $stmt->execute();
