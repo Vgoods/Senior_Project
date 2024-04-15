@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: SAA_Login_Connect.php");
+    header("Location: SAA_Login_Connect.php"); 
     exit();
 }
 
@@ -19,22 +19,35 @@ $result = $stmt->get_result();
 $userData = $result->fetch_assoc();
 $email = $userData['email'];
 
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Status</title>
+    <link rel="stylesheet" href="SAA_Status.css"> 
+</head>
+<body>
+
+<?php
+
 $stmt = $conn->prepare("SELECT * FROM avrequest WHERE email = ?");
 $stmt->bind_param("s", $email);
 $stmt->execute();
 $result = $stmt->get_result();
 
 while ($row = $result->fetch_assoc()) {
-    echo "Subject: " . $row['subject'] . "<br>";
-    echo "Description: " . $row['description'] . "<br>";
-    echo "Status: Active. Awaiting Request Acceptance<br>"; 
-
+    echo "<div class='request-container'>";
+    echo "<div class='request-title'>Subject: " . $row['subject'] . "</div>";
+    echo "<div class='request-description'>Description: " . $row['description'] . "</div>";
+    echo "<div class='request-status'>Status: Active... Awaiting Request Acceptance</div>";
     echo "<form method='post' action='cancel_request.php'>";
     echo "<input type='hidden' name='request_id' value='" . $row['id'] . "'>";
-    echo "<input type='submit' name='cancel_request' value='Cancel Request'>";
+    echo "<input type='submit' name='cancel_request' value='Cancel Request' class='cancel-button'>";
     echo "</form>";
-
-    echo "<br>";
+    echo "</div>";
 }
 
 $stmt = $conn->prepare("SELECT * FROM actrequest WHERE email = ?");
@@ -43,16 +56,15 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 while ($row = $result->fetch_assoc()) {
-    echo "Subject: " . $row['subject'] . "<br>";
-    echo "Description: " . $row['description'] . "<br>";
-    echo "Status: In Progress<br>"; 
-
+    echo "<div class='request-container'>";
+    echo "<div class='request-title'>Subject: " . $row['subject'] . "</div>";
+    echo "<div class='request-description'>Description: " . $row['description'] . "</div>";
+    echo "<div class='request-status'>Status: In Progress</div>";
     echo "<form method='post' action='cancel_request.php'>";
     echo "<input type='hidden' name='request_id' value='" . $row['id'] . "'>";
-    echo "<input type='submit' name='cancel_request' value='Cancel Request'>";
+    echo "<input type='submit' name='cancel_request' value='Cancel Request' class='cancel-button'>";
     echo "</form>";
-
-    echo "<br>";
+    echo "</div>";
 }
 
 $stmt = $conn->prepare("SELECT * FROM fnrequest WHERE email = ?");
@@ -61,16 +73,16 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 while ($row = $result->fetch_assoc()) {
-    echo "Subject: " . $row['subject'] . "<br>";
-    echo "Description: " . $row['description'] . "<br>";
-    
-    echo "<form>";
-    echo "Status: Closed";
-    echo "</form>";
-
-    echo "<br>";
+    echo "<div class='request-container'>";
+    echo "<div class='request-title'>Subject: " . $row['subject'] . "</div>";
+    echo "<div class='request-description'>Description: " . $row['description'] . "</div>";
+    echo "<div class='request-status'>Status: Closed</div>";
+    echo "</div>";
 }
 
 $stmt->close();
 $conn->close();
 ?>
+
+</body>
+</html>
