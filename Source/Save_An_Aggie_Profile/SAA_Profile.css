@@ -12,7 +12,7 @@ body {
   }
   
   #main-holder {
-    background-color: rgba(255, 255, 255, 0.9); 
+    background-color: rgba(255, 255, 255, 0.9); /* Adjust the alpha value to make it less transparent */
     padding: 30px;
     border-radius: 5px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
@@ -47,4 +47,30 @@ body {
 #home-link:hover {
     text-decoration: underline;
     color: #0056b3;
+}
+
+#status-link{
+  display: block;
+  text-align: center;
+  color: #007bff;
+  text-decoration: none;
+  padding: 10px;
+}
+
+#status-link:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
+
+#login-link{
+  display: block;
+  text-align: center;
+  color: #007bff;
+  text-decoration: none;
+  padding: 1px;
+}
+
+#login-link:hover {
+  text-decoration: underline;
+  color: #0056b3;
 }
