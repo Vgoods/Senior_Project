@@ -1,16 +1,19 @@
 <?php
 session_start();
 
+// Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
-    header("Location: SAA_Login_Connect.php"); 
+    header("Location: SAA_Login_Connect.php"); // Redirect to login page if not logged in
     exit();
 }
 
+// Database connection
 $conn = new mysqli('localhost', 'root', '', 'test');
 if ($conn->connect_error) {
     die("Connection Failed: " . $conn->connect_error);
 }
 
+// Retrieve email of the logged-in user
 $userId = $_SESSION['user_id'];
 $stmt = $conn->prepare("SELECT email FROM register WHERE id = ?");
 $stmt->bind_param("i", $userId);
@@ -27,17 +30,33 @@ $email = $userData['email'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Request Status</title>
-    <link rel="stylesheet" href="SAA_Status.css"> 
+    <link rel="stylesheet" href="SAA_Status.css"> <!-- Link to external CSS file -->
 </head>
 <body>
+<header>
+    <nav>
+      <div class="container">
+        <h1>Save An Aggie</h1>
+        <ul>
+          <li><a href="SAA_Home.html">Home</a></li>
+          <li><a href="SAA_Profile.html">Profile</a></li>
+          <li><a href="SAA_About.html">About</a></li>
+          <li><a href="SAA_Task.php">Help An Aggie</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
 <?php
 
+// Retrieve data from avrequest table based on the email
 $stmt = $conn->prepare("SELECT * FROM avrequest WHERE email = ?");
 $stmt->bind_param("s", $email);
 $stmt->execute();
 $result = $stmt->get_result();
 
+// Display data from avrequest table
+echo "<div class='request-grid-container'>";
 while ($row = $result->fetch_assoc()) {
     echo "<div class='request-container'>";
     echo "<div class='request-title'>Subject: " . $row['subject'] . "</div>";
@@ -50,11 +69,13 @@ while ($row = $result->fetch_assoc()) {
     echo "</div>";
 }
 
+// Retrieve data from actrequest table based on the email
 $stmt = $conn->prepare("SELECT * FROM actrequest WHERE email = ?");
 $stmt->bind_param("s", $email);
 $stmt->execute();
 $result = $stmt->get_result();
 
+// Display data from actrequest table
 while ($row = $result->fetch_assoc()) {
     echo "<div class='request-container'>";
     echo "<div class='request-title'>Subject: " . $row['subject'] . "</div>";
@@ -72,6 +93,7 @@ $stmt->bind_param("s", $email);
 $stmt->execute();
 $result = $stmt->get_result();
 
+// Display data from fnrequest table
 while ($row = $result->fetch_assoc()) {
     echo "<div class='request-container'>";
     echo "<div class='request-title'>Subject: " . $row['subject'] . "</div>";
@@ -79,10 +101,17 @@ while ($row = $result->fetch_assoc()) {
     echo "<div class='request-status'>Status: Closed</div>";
     echo "</div>";
 }
+echo "</div>";
 
 $stmt->close();
 $conn->close();
 ?>
+
+<footer>
+    <div class="container">
+      <p>&copy; 2024 Save An Aggie</p>
+    </div>
+  </footer>
 
 </body>
 </html>
