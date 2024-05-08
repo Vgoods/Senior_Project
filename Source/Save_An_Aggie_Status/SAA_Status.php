@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: SAA_Login_Connect.php"); // Redirect to login page if not logged in
+    header("Location: SAA_Login_Connect.php"); 
     exit();
 }
 
